@@ -6,57 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StagOS Report</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .form-container {
-            transition: transform 0.5s ease;
-        }
-
-        .form-container.show {
-            transform: translateY(-60px);
-        }
-
-        .form-elements {
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .form-container.show .form-elements {
-            opacity: 1;
-        }
-
-        #title-heading {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translate(-50%, -100%);
-            white-space: nowrap;
-        }
-
-        .form-container.show #title-heading {
-            transform: translateY(-100%) scale(0);
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .form-container.show {
-                transform: translateY(-40px);
-            }
-
-            #title-heading {
-                font-size: 1.5rem;
-            }
-
-            .form-container.show #title-heading {
-                transform: translate(-100, -100%) scale(0);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+        <div class="shape shape-4"></div>
+    </div>
+
     <header class="bg-blue-500 text-white py-2">
         <div class="container mx-auto flex justify-between items-center">
             <div class="py-2">
