@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const reportsLink = document.getElementById("reportsLink");
   const reportsList = document.getElementById("reportsList");
 
+  const bugFields = document.getElementById("bugFields");
+
   // Navigation
   homeLink.addEventListener("click", function (e) {
     e.preventDefault();
@@ -30,6 +32,18 @@ document.addEventListener("DOMContentLoaded", function () {
     showSection(reportsSection);
     loadReports();
   });
+
+  // Toggle bug-specific fields
+  reportTypeSelect.addEventListener("change", function () {
+    if (this.value === "bug") {
+      bugFields.style.display = "block";
+    } else {
+      bugFields.style.display = "none";
+    }
+  });
+
+  // Initialize bug fields visibility
+  bugFields.style.display = reportTypeSelect.value === "bug" ? "block" : "none";
 
   function showSection(section) {
     homeSection.style.display = "none";
@@ -61,6 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const description = descriptionTextarea.value.trim();
     const reportType = reportTypeSelect.value;
     const device = deviceInput.value.trim();
+    const contactInfo = contactInfoInput.value.trim();
+    const log = logTextarea.value.trim();
 
     if (title !== "" && description !== "" && device !== "") {
       // Make an API call to check for similar reports

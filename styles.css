@@ -1,143 +1,152 @@
 .form-container {
-    transition: transform 0.5s ease;
-}
-
-.form-container.show {
-    transform: translateY(-60px);
-}
-
-.form-elements {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.form-container.show .form-elements {
-    opacity: 1;
-}
-
-#title-heading {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    white-space: nowrap;
+  transition: transform 0.5s ease;
 }
 
 .form-container.show #title-heading {
-    transform: translateY(-100%) scale(0);
+  transform: translate(-50%, -150%) scale(0.8);
+  top: 10px;
 }
 
+.form-container.show {
+  transform: translateY(-60px);
+}
+
+.form-elements {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.form-container.show .form-elements {
+  opacity: 1;
+}
+
+#title-heading {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translate(-50%);
+  white-space: nowrap;
+}
 
 body {
-    background-color: #f0f4f8;
+  background-color: #f0f4f8;
 }
 
 .background-shapes {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
 }
 
 .shape {
-    position: absolute;
-    opacity: 0.3;
-    animation: moveShape 30s linear infinite;
+  position: absolute;
+  opacity: 0.3;
+  animation: moveShape 30s linear infinite;
 }
 
 .shape-1 {
-    width: 200px;
-    height: 200px;
-    background-color: #e2e8f0;
-    border-radius: 50%;
-    top: 20%;
-    left: 10%;
+  width: 200px;
+  height: 200px;
+  background-color: #e2e8f0;
+  border-radius: 50%;
+  top: 20%;
+  left: 10%;
 }
 
 .shape-2 {
-    width: 150px;
-    height: 150px;
-    background-color: #cbd5e0;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    top: 60%;
-    right: 15%;
+  width: 150px;
+  height: 150px;
+  background-color: #cbd5e0;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  top: 60%;
+  right: 15%;
 }
 
 .shape-3 {
-    width: 180px;
-    height: 180px;
-    background-color: #a0aec0;
-    border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
-    top: 35%;
-    left: 30%;
+  width: 180px;
+  height: 180px;
+  background-color: #a0aec0;
+  border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+  top: 35%;
+  left: 30%;
 }
 
 .shape-4 {
-    width: 120px;
-    height: 120px;
-    background-color: #718096;
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    top: 80%;
-    left: 60%;
+  width: 120px;
+  height: 120px;
+  background-color: #718096;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  top: 80%;
+  left: 60%;
 }
 
 @keyframes moveShape {
-    0% {
-        transform: translate(0, 0) rotate(0);
-    }
+  0% {
+    transform: translate(0, 0) rotate(0);
+  }
 
-    100% {
-        transform: translate(100px, 100px) rotate(360deg);
-    }
+  100% {
+    transform: translate(100px, 100px) rotate(360deg);
+  }
 }
 
 header {
-    backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 #home .container {
-    max-width: 800px;
+  max-width: 800px;
+  /* vertical centering */
+  position: absolute;
+  top: 30%;
+  /* left: 50%; */
 }
 
-#home .container>div {
-    padding: 40px;
+#home .container > div {
+  padding: 40px;
 }
 
 #similarReportsList {
-    max-height: 300px;
-    overflow-y: auto;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 #similarReportsList::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 #similarReportsList::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
+  background-color: #f1f1f1;
 }
 
 #similarReportsList::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 3px;
+  background-color: #888;
+  border-radius: 3px;
 }
 
 @media (max-width: 640px) {
-    .container {
-        padding: 0 1rem;
-    }
+  .container {
+    padding: 0 1rem;
+  }
 
-    .form-container.show {
-        transform: translateY(-40px);
-    }
+  .form-container.show {
+    transform: translateY(-40px);
+  }
 
-    #title-heading {
-        font-size: 1.5rem;
-    }
+  #title-heading {
+    font-size: 1.5rem;
+  }
 
-    .form-container.show #title-heading {
-        transform: translate(-100, -100%) scale(0);
-    }
+  #home .container {
+    top: 30%;
+  }
+
+  .form-container.show #title-heading {
+    transform: translate(-100, -100%) scale(1);
+    top: 10px;
+  }
 }

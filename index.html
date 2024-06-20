@@ -77,13 +77,44 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="device" class="block mb-2">Device:</label>
+                    <label for="device" class="block mb-2"> Device: </label>
                     <input
                       type="text"
                       id="device"
                       placeholder="Enter device"
                       class="w-full px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
+                  </div>
+                </div>
+                <div id="bugFields" class="mt-4">
+                  <div class="form-group mb-4">
+                    <label for="contactInfo" class="block mb-2">
+                      Contact Info (Email/Telegram):
+                      <i
+                        class="fas fa-info-circle ml-1 cursor-pointer text-blue-500"
+                        title="Provide your email or Telegram handle so we can contact you for more information if needed."
+                      ></i>
+                    </label>
+                    <input
+                      type="text"
+                      id="contactInfo"
+                      placeholder="Enter email or Telegram handle"
+                      class="w-full px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                  <div class="form-group mb-4">
+                    <label for="log" class="block mb-2">
+                      Log:
+                      <i
+                        class="fas fa-info-circle ml-1 cursor-pointer text-blue-500"
+                        title="Paste any relevant log information here to help us diagnose the issue."
+                      ></i>
+                    </label>
+                    <textarea
+                      id="log"
+                      placeholder="Paste log information here"
+                      class="w-full px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    ></textarea>
                   </div>
                 </div>
                 <button
@@ -97,7 +128,6 @@
           </div>
         </div>
       </section>
-
       <section
         id="reports"
         class="container mx-auto mt-8 px-4"
