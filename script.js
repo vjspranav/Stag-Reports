@@ -1,5 +1,6 @@
 // script.js
 document.addEventListener("DOMContentLoaded", function () {
+  const BASE_URL = "https://api.stag-os.org";
   const titleInput = document.getElementById("title");
   const descriptionTextarea = document.getElementById("description");
   const reportTypeSelect = document.getElementById("reportType");
@@ -39,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (title !== "" && description !== "" && device !== "") {
       // Make an API call to check for similar reports
-      fetch("/api/reports/similar", {
+      fetch(`${BASE_URL}/report/similar`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,19 +53,38 @@ document.addEventListener("DOMContentLoaded", function () {
             // Display similar reports in the popup
             similarReportsList.innerHTML = "";
             data.forEach((report) => {
-              const listItem = document.createElement("li");
-              listItem.textContent = report.title;
-              similarReportsList.appendChild(listItem);
+              const reportCell = document.createElement("div");
+              reportCell.classList.add(
+                "border",
+                "border-gray-300",
+                "rounded-lg",
+                "p-4",
+                "cursor-pointer",
+                "hover:bg-gray-100"
+              );
+              reportCell.innerHTML = `
+                        <h3 class="text-lg font-bold mb-2">${report.title}</h3>
+                        <p class="text-gray-600">${report.description}</p>
+                    `;
+              reportCell.addEventListener("click", function () {
+                // Handle the selection of a similar report
+                console.log("Selected report:", report);
+                // You can perform further actions here, such as populating the form fields with the selected report data
+              });
+              similarReportsList.appendChild(reportCell);
             });
             similarReportsPopup.style.display = "flex";
           } else {
             // Submit the report if no similar reports found
-            submitReport(title, description, reportType, device);
+            // submitReport(title, description, reportType, device);
+            alert("No similar reports found. Submitting the report.");
           }
         })
         .catch((error) => {
           console.error("Error:", error);
         });
+    } else {
+      alert("Please fill in all the fields");
     }
   });
 

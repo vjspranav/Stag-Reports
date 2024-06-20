@@ -27,23 +27,6 @@
     transform: translateY(-100%) scale(0);
 }
 
-@media (max-width: 640px) {
-    .container {
-        padding: 0 1rem;
-    }
-
-    .form-container.show {
-        transform: translateY(-40px);
-    }
-
-    #title-heading {
-        font-size: 1.5rem;
-    }
-
-    .form-container.show #title-heading {
-        transform: translate(-100, -100%) scale(0);
-    }
-}
 
 body {
     background-color: #f0f4f8;
@@ -121,4 +104,40 @@ header {
 
 #home .container>div {
     padding: 40px;
+}
+
+#similarReportsList {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#similarReportsList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#similarReportsList::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+#similarReportsList::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 3px;
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .form-container.show {
+        transform: translateY(-40px);
+    }
+
+    #title-heading {
+        font-size: 1.5rem;
+    }
+
+    .form-container.show #title-heading {
+        transform: translate(-100, -100%) scale(0);
+    }
 }
