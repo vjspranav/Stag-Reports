@@ -1,90 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>StagOS Report</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
+  <body>
     <div class="background-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
     </div>
 
     <header class="bg-blue-500 text-white py-2">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="py-2">
-                <!-- Placeholder for logo, you can replace it with an actual image or text -->
-                <a href="#home" class="hover:text-blue-200 text-lg font-bold">Logo</a>
-            </div>
-            <nav>
-                <ul class="flex space-x-4">
-                    <li><a href="#home" class="hover:text-blue-200">Home</a></li>
-                    <li><a href="#reports" class="hover:text-blue-200">Reports</a></li>
-                </ul>
-            </nav>
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="py-2">
+          <!-- Placeholder for logo, you can replace it with an actual image or text -->
+          <a href="#home" class="hover:text-blue-200 text-lg font-bold">Logo</a>
         </div>
+        <nav>
+          <ul class="flex space-x-4">
+            <li>
+              <a href="#home" class="hover:text-blue-200" id="homeLink">Home</a>
+            </li>
+            <li>
+              <a href="#reports" class="hover:text-blue-200" id="reportsLink"
+                >Reports</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <section id="home" class="flex items-center justify-center min-h-screen">
-            <div class="container mx-auto px-4">
-                <div class="relative">
-                    <div class="form-container mx-auto w-full max-w-lg">
-                        <h1 id="title-heading"
-                            class="text-3xl md:text-4xl font-bold mb-4 text-center transition-all duration-500 ease-in-out">
-                            Bug and Feature Reporter</h1>
-                        <input type="text" id="title" placeholder="Start typing your Bug or Feature title"
-                            class="w-full px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <div class="form-elements mt-8">
-                                <textarea id="description" placeholder="Enter description"
-                                    class="w-full px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                                <div class="mt-4 flex flex-col md:flex-row md:justify-between">
-                                    <div class="form-group mb-4 md:mb-0 md:mr-4">
-                                        <label for="reportType" class="block mb-2">Report Type:</label>
-                                        <select id="reportType"
-                                            class="w-full px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                            <option value="bug">Bug</option>
-                                            <option value="feature">Feature</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="device" class="block mb-2">Device:</label>
-                                        <input type="text" id="device" placeholder="Enter device"
-                                            class="w-full px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    </div>
-                                </div>
-                                <button id="submitBtn"
-                                    class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
-                            </div>
-                    </div>
+      <section id="home" class="flex items-center justify-center min-h-screen">
+        <div class="container mx-auto px-4">
+          <div class="relative">
+            <div class="form-container mx-auto w-full max-w-lg">
+              <h1
+                id="title-heading"
+                class="text-3xl md:text-4xl font-bold mb-4 text-center transition-all duration-500 ease-in-out"
+              >
+                Bug and Feature Reporter
+              </h1>
+              <input
+                type="text"
+                id="title"
+                placeholder="Start typing your Bug or Feature title"
+                class="w-full px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <div class="form-elements mt-8">
+                <textarea
+                  id="description"
+                  placeholder="Enter description"
+                  class="w-full px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+                <div class="mt-4 flex flex-col md:flex-row md:justify-between">
+                  <div class="form-group mb-4 md:mb-0 md:mr-4">
+                    <label for="reportType" class="block mb-2"
+                      >Report Type:</label
+                    >
+                    <select
+                      id="reportType"
+                      class="w-full px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    >
+                      <option value="bug">Bug</option>
+                      <option value="feature">Feature</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="device" class="block mb-2">Device:</label>
+                    <input
+                      type="text"
+                      id="device"
+                      placeholder="Enter device"
+                      class="w-full px-4 py-2 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
                 </div>
+                <button
+                  id="submitBtn"
+                  class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                >
+                  Submit
+                </button>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="reports" class="container mx-auto mt-8">
-            <!-- Display existing reports here -->
-        </section>
+      <section
+        id="reports"
+        class="container mx-auto mt-8 px-4"
+        style="display: none"
+      >
+        <h2 class="text-2xl font-bold mb-4">Reports</h2>
+        <div
+          id="reportsList"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
+          <!-- Reports will be dynamically added here -->
+        </div>
+      </section>
     </main>
 
-    <div id="similarReportsPopup" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center" style="display: none;">
-        <div class="bg-white p-8 rounded-lg shadow-md">
-            <h2 class="text-2xl font-bold mb-4">Similar Reports Found</h2>
-            <p class="mb-4">We found similar reports to the one you are about to submit. If your report is similar to any of the reports below, please click on the report to add weight to it.</p>            <div id="similarReportsList" class="grid grid-cols-1 sm:grid-cols-1 gap-4 mb-4"></div>
-            <div class="flex justify-end">
-                <button id="submitAnyway" class="px-4 py-2 mr-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit Anyway</button>
-                <button id="cancelSubmit" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg shadow-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400">Cancel</button>
-            </div>
+    <div
+      id="similarReportsPopup"
+      class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
+      style="display: none"
+    >
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">Similar Reports Found</h2>
+        <p class="mb-4">
+          We found similar reports to the one you are about to submit. If your
+          report is similar to any of the reports below, please click on the
+          report to add weight to it.
+        </p>
+        <div
+          id="similarReportsList"
+          class="grid grid-cols-1 sm:grid-cols-1 gap-4 mb-4"
+        ></div>
+        <div class="flex justify-end">
+          <button
+            id="submitAnyway"
+            class="px-4 py-2 mr-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Submit Anyway
+          </button>
+          <button
+            id="cancelSubmit"
+            class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg shadow-md hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          >
+            Cancel
+          </button>
         </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
