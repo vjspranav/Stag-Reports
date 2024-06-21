@@ -21,6 +21,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const bugFields = document.getElementById("bugFields");
 
+  // We have 7 shapes, randomly initialize the shape and position
+  const shapes = document.querySelectorAll(".shape");
+  shapes.forEach((shape) => {
+    const randomX = Math.floor(Math.random() * 100) + 1;
+    const randomY = Math.floor(Math.random() * 100) + 1;
+    shape.style.left = `${randomX}%`;
+    shape.style.top = `${randomY}%`;
+    shape.style.animation =
+      Math.random() > 0.5
+        ? "moveShape 30s linear infinite"
+        : "moveShapeReverse 30s linear infinite";
+  });
+
   // Navigation
   homeLink.addEventListener("click", function (e) {
     e.preventDefault();
