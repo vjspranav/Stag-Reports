@@ -3,8 +3,8 @@
 }
 
 .form-container.show #title-heading {
-  transform: translate(-50%, -150%) scale(0.8);
-  top: 10px;
+  transition: transform 0.3s ease; /* Adjust the duration and timing function as needed */
+  transform: translate(-70%, -140%) scale(0.8);
 }
 
 .form-container.show {
@@ -22,9 +22,8 @@
 
 #title-heading {
   position: absolute;
-  top: -20px;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -140%);
   white-space: nowrap;
 }
 
@@ -150,7 +149,7 @@ header {
   }
 
   .form-container.show #title-heading {
-    transform: translate(-100, -100%) scale(1);
-    top: 10px;
+    transform: translate(-50%, -140%) scale(0.8);
+    /* top: 10px; */
   }
 }
