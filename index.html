@@ -8,7 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -154,15 +154,85 @@
       </section>
       <section
         id="reports"
-        class="container mx-auto mt-8 px-4"
+        class="container mx-auto mt-8 px-4 max-w-7xl"
         style="display: none"
       >
-        <h2 class="text-2xl font-bold mb-4">Reports</h2>
-        <div
-          id="reportsList"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-        >
-          <!-- Reports will be dynamically added here -->
+        <h1 class="text-4xl font-bold text-blue-800 mb-8 text-center">
+          Ocean of Reports
+        </h1>
+        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div class="p-6 bg-gradient-to-r from-blue-100 to-cyan-100">
+            <div
+              class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4"
+            >
+              <div class="w-full md:w-1/2">
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Search reports..."
+                  class="w-full px-4 py-2 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
+                />
+              </div>
+              <div class="w-full md:w-1/2">
+                <select
+                  id="filterSelect"
+                  class="w-full px-4 py-2 rounded-lg border border-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"
+                >
+                  <option value="all">All Reports</option>
+                  <option value="bug">Bug Reports</option>
+                  <option value="feature">Feature Requests</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table id="reportsTable" class="w-full">
+              <thead>
+                <tr
+                  class="bg-gradient-to-r from-blue-500 to-cyan-500 text-white"
+                >
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer transition duration-300 ease-in-out hover:bg-blue-600"
+                    data-sort="reportType"
+                  >
+                    Type <span class="sort-icon ml-1">↕</span>
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer transition duration-300 ease-in-out hover:bg-blue-600"
+                    data-sort="title"
+                  >
+                    Title <span class="sort-icon ml-1">↕</span>
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+                  >
+                    Description
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer transition duration-300 ease-in-out hover:bg-blue-600"
+                    data-sort="version"
+                  >
+                    Version <span class="sort-icon ml-1">↕</span>
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer transition duration-300 ease-in-out hover:bg-blue-600"
+                    data-sort="reportCount"
+                  >
+                    Count <span class="sort-icon ml-1">↕</span>
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider cursor-pointer transition duration-300 ease-in-out hover:bg-blue-600"
+                    data-sort="status"
+                  >
+                    Status <span class="sort-icon ml-1">↕</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="reportsBody" class="bg-white divide-y divide-gray-200">
+                <!-- Reports will be dynamically added here -->
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
     </main>
@@ -200,6 +270,7 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/script-report.js"></script>
   </body>
 </html>

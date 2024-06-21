@@ -1,0 +1,125 @@
+/* reports-styles.css */
+#reports {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#reports.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#reportsTable th {
+  position: relative;
+  overflow: hidden;
+}
+
+#reportsTable th::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+#reportsTable th:hover::after {
+  transform: translateX(0);
+}
+
+.sort-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+th[data-sort].sorted-asc .sort-icon {
+  transform: rotate(180deg);
+}
+
+#reportsBody tr {
+  transition: background-color 0.3s ease;
+}
+
+#reportsBody tr:hover {
+  background-color: rgba(224, 247, 250, 0.5);
+}
+
+.status {
+  display: inline-block;
+  padding: 0.25em 0.6em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.status.open {
+  background-color: #48bb78;
+  color: #fff;
+}
+
+.status.closed {
+  background-color: #f56565;
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#reportsBody tr {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+#reportsBody tr:nth-child(even) {
+  animation-delay: 0.1s;
+}
+
+@media (max-width: 768px) {
+  #reportsTable,
+  #reportsTable tbody,
+  #reportsTable tr,
+  #reportsTable td {
+    display: block;
+  }
+
+  #reportsTable tr {
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  #reportsTable td {
+    display: flex;
+    padding: 0.5rem 1rem;
+    text-align: right;
+    border: none;
+  }
+
+  #reportsTable td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: auto;
+    text-align: left;
+  }
+
+  #reportsTable thead {
+    display: none;
+  }
+}

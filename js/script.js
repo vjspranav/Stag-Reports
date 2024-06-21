@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function () {
   reportsLink.addEventListener("click", function (e) {
     e.preventDefault();
     showSection(reportsSection);
-    loadReports();
   });
 
   // Toggle bug-specific fields
@@ -155,46 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
   cancelSubmitBtn.addEventListener("click", function () {
     similarReportsPopup.style.display = "none";
   });
-
-  // Load placeholder reports
-  function loadReports() {
-    const placeholderReports = [
-      {
-        id: 1,
-        title: "Bug: App crashes on startup",
-        type: "bug",
-        device: "Pixel 6",
-        date: "2023-06-20",
-      },
-      {
-        id: 2,
-        title: "Feature request: Dark mode",
-        type: "feature",
-        device: "All devices",
-        date: "2023-06-19",
-      },
-      {
-        id: 3,
-        title: "Bug: Battery drain issue",
-        type: "bug",
-        device: "OnePlus 9",
-        date: "2023-06-18",
-      },
-    ];
-
-    reportsList.innerHTML = "";
-    placeholderReports.forEach((report) => {
-      const reportElement = document.createElement("div");
-      reportElement.classList.add("bg-white", "p-4", "rounded-lg", "shadow");
-      reportElement.innerHTML = `
-                <h3 class="text-lg font-semibold">${report.title}</h3>
-                <p class="text-sm text-gray-600">Type: ${report.type}</p>
-                <p class="text-sm text-gray-600">Device: ${report.device}</p>
-                <p class="text-sm text-gray-600">Date: ${report.date}</p>
-            `;
-      reportsList.appendChild(reportElement);
-    });
-  }
 
   function submitReport(title, description, reportType, device) {
     // Make an API call to submit the report
