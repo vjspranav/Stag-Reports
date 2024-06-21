@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const descriptionTextarea = document.getElementById("description");
   const reportTypeSelect = document.getElementById("reportType");
   const deviceInput = document.getElementById("device");
+  const contactInfoInput = document.getElementById("contactInfo");
+  const logTextarea = document.getElementById("log");
   const submitBtn = document.getElementById("submitBtn");
   const similarReportsPopup = document.getElementById("similarReportsPopup");
   const similarReportsList = document.getElementById("similarReportsList");
