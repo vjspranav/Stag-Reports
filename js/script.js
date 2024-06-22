@@ -44,6 +44,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   reportsLink.addEventListener("click", function (e) {
     e.preventDefault();
+    // if mobile, show alert saying this is not optimized for mobile
+    if (window.innerWidth < 768) {
+      alert(
+        "This page is not optimized for mobile. Please view on a larger screen."
+      );
+    }
+
     showSection(reportsSection);
   });
 
@@ -122,16 +129,41 @@ document.addEventListener("DOMContentLoaded", function () {
                     `;
               reportCell.addEventListener("click", function () {
                 // Handle the selection of a similar report
-                console.log("Selected report:", report);
-                // You can perform further actions here, such as populating the form fields with the selected report data
+                fetch(`${BASE_URL}/report/${report._id}`, {
+                  method: "PUT",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({ device }),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    titleInput.value = data.title;
+                    descriptionTextarea.value = data.description;
+                    reportTypeSelect.value = data.reportType;
+                    deviceInput.value = data.device;
+                    contactInfoInput.value = data.contact;
+                    logTextarea.value = data.log;
+                    similarReportsPopup.style.display = "none";
+                    alert("Increased priority of the selected report!");
+                  })
+                  .catch((error) => {
+                    console.error("Error:", error);
+                  });
               });
               similarReportsList.appendChild(reportCell);
             });
             similarReportsPopup.style.display = "flex";
           } else {
             // Submit the report if no similar reports found
-            // submitReport(title, description, reportType, device);
-            alert("No similar reports found. Submitting the report.");
+            submitReport(
+              title,
+              description,
+              reportType,
+              device,
+              contactInfo,
+              log
+            );
           }
         })
         .catch((error) => {
@@ -147,7 +179,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const description = descriptionTextarea.value.trim();
     const reportType = reportTypeSelect.value;
     const device = deviceInput.value.trim();
-    submitReport(title, description, reportType, device);
+    const contactInfo = contactInfoInput.value.trim();
+    const log = logTextarea.value.trim();
+    submitReport(title, description, reportType, device, contactInfo, log);
     similarReportsPopup.style.display = "none";
   });
 
@@ -155,14 +189,22 @@ document.addEventListener("DOMContentLoaded", function () {
     similarReportsPopup.style.display = "none";
   });
 
-  function submitReport(title, description, reportType, device) {
+  function submitReport(title, description, reportType, device, contact, log) {
     // Make an API call to submit the report
-    fetch("/api/reports", {
+    fetch(`${BASE_URL}/report`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ title, description, reportType, device }),
+      body: JSON.stringify({
+        title,
+        description,
+        reportType,
+        device,
+        contact,
+        log,
+        version: "14",
+      }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -172,6 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
         descriptionTextarea.value = "";
         deviceInput.value = "";
         formContainer.classList.remove("show");
+        alert("Report submitted successfully!");
       })
       .catch((error) => {
         console.error("Error:", error);
